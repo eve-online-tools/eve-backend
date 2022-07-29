@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1651950514004-1" author="ronny (generated)">
+        <addColumn tableName="trade_candidate">
+            <column name="average_profit_at_current_sell_prices" type="DOUBLE"/>
+            <column name="average_profit_pct_at_current_sell_prices" type="DOUBLE"/>
+            <column name="current_profit_pct" type="DOUBLE"/>
+            <column name="current_profit_per_item" type="DOUBLE"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="1651950514004-5" author="ronny (generated)">
+        <dropColumn columnName="possible_profit_per_daily_volume_in_sell_region" tableName="trade_candidate"/>
+
+        <dropColumn columnName="possible_profit_per_item" tableName="trade_candidate"/>
+
+        <dropColumn columnName="profit_pct_current_sell" tableName="trade_candidate"/>
+    </changeSet>
+
+</databaseChangeLog>

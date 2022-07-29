@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpbDataSourceConfig">
+    <data-sources>
+      <data-source id="fd5c5e5e-b809-4443-8c1a-cb41cb2fa7ab" name="eve-backend" url="jdbc:postgresql://localhost/eve_dev" driverClass="org.postgresql.Driver" />
+    </data-sources>
+  </component>
+</project>

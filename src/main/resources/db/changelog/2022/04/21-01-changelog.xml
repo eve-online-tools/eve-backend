@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1650548016388-1" author="ronny (generated)">
+        <createSequence incrementBy="1" sequenceName="hibernate_sequence" startValue="1"/>
+    </changeSet>
+    <changeSet id="1650548016388-2" author="ronny (generated)">
+        <createTable tableName="application_user">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_application_user"/>
+            </column>
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="last_login" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-3" author="ronny (generated)">
+        <createTable tableName="asset">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_asset"/>
+            </column>
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="corp_id" type="INT"/>
+            <column name="character_id" type="INT"/>
+            <column name="type_id" type="INT"/>
+            <column name="location_flag" type="VARCHAR(255)"/>
+            <column name="location_type" type="VARCHAR(255)"/>
+            <column name="quantity" type="INT"/>
+            <column name="location_id" type="BIGINT"/>
+            <column name="location_name" type="VARCHAR(255)"/>
+            <column name="singleton" type="BOOLEAN"/>
+            <column name="blueprint_copy" type="BOOLEAN"/>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-4" author="ronny (generated)">
+        <createTable tableName="character_wallet">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_characterwallet"/>
+            </column>
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="character_id" type="INT"/>
+            <column name="value" type="DOUBLE"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-5" author="ronny (generated)">
+        <createTable tableName="constellation">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_constellation"/>
+            </column>
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="region_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-6" author="ronny (generated)">
+        <createTable tableName="corp_wallet">
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="value" type="DOUBLE"/>
+            <column name="corp_id" type="INT">
+                <constraints primaryKey="true" primaryKeyName="pk_corpwallet"/>
+            </column>
+            <column name="division" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_corpwallet"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-7" author="ronny (generated)">
+        <createTable tableName="corporation">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_corporation"/>
+            </column>
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="user_id" type="INT"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="ticker" type="VARCHAR(255)"/>
+            <column name="member_count" type="INT"/>
+            <column name="ceo_id" type="INT"/>
+            <column name="logo" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-8" author="ronny (generated)">
+        <createTable tableName="eve_character">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_evecharacter"/>
+            </column>
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="user_id" type="INT"/>
+            <column name="alliance_id" type="INT"/>
+            <column name="corporation_id" type="INT"/>
+            <column name="corporation_name" type="VARCHAR(255)"/>
+            <column name="corporation_ticker" type="VARCHAR(255)"/>
+            <column name="security_status" type="FLOAT"/>
+            <column name="portrait64" type="VARCHAR(255)"/>
+            <column name="portrait128" type="VARCHAR(255)"/>
+            <column name="portrait256" type="VARCHAR(255)"/>
+            <column name="portrait512" type="VARCHAR(255)"/>
+            <column name="corp_logo" type="VARCHAR(255)"/>
+            <column name="location_id" type="BIGINT"/>
+            <column name="location_name" type="VARCHAR(255)"/>
+            <column name="solar_system_id" type="INT"/>
+            <column name="solar_system_name" type="VARCHAR(255)"/>
+            <column name="api_token" type="TEXT"/>
+            <column name="refresh_token" type="TEXT"/>
+            <column name="expiry_date" type="DATETIME"/>
+            <column name="client_id" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-9" author="ronny (generated)">
+        <createTable tableName="eve_icons">
+            <column name="iconid" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_eveicons"/>
+            </column>
+            <column name="icon_file" type="VARCHAR(500)"/>
+            <column name="description" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-10" author="ronny (generated)">
+        <createTable tableName="inv_market_groups">
+            <column name="market_groupid" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_invmarketgroups"/>
+            </column>
+            <column name="parent_groupid" type="INT"/>
+            <column name="market_group_name" type="VARCHAR(100)"/>
+            <column name="description" type="VARCHAR(3000)"/>
+            <column name="iconid" type="INT"/>
+            <column name="has_types" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-11" author="ronny (generated)">
+        <createTable tableName="job_data">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_jobdata"/>
+            </column>
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="job_class_name" type="VARCHAR(255)"/>
+            <column name="job_name" type="VARCHAR(255)"/>
+            <column name="run_count" type="BIGINT"/>
+            <column name="next_execution_time" type="DATETIME"/>
+            <column name="next_job_id" type="UUID"/>
+            <column name="last_execution_time" type="DATETIME"/>
+            <column name="is_cron_job" type="BOOLEAN"/>
+            <column name="cron_expression" type="VARCHAR(255)"/>
+            <column name="last_duration" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-12" author="ronny (generated)">
+        <createTable tableName="job_data_job_params">
+            <column name="job_data_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_jobdata_jobparams"/>
+            </column>
+            <column name="job_params" type="VARCHAR(255)"/>
+            <column name="job_params_key" type="VARCHAR(255)">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_jobdata_jobparams"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-13" author="ronny (generated)">
+        <createTable tableName="journal_entry">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_journalentry"/>
+            </column>
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="amount" type="DOUBLE"/>
+            <column name="balance" type="DOUBLE"/>
+            <column name="context_id" type="BIGINT"/>
+            <column name="context_type" type="VARCHAR(255)"/>
+            <column name="date" type="DATETIME"/>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="party1" type="INT"/>
+            <column name="party1name" type="VARCHAR(255)"/>
+            <column name="reason" type="VARCHAR(255)"/>
+            <column name="ref_type" type="VARCHAR(255)"/>
+            <column name="party2" type="INT"/>
+            <column name="party2name" type="VARCHAR(255)"/>
+            <column name="tax" type="DOUBLE"/>
+            <column name="tax_receiver_id" type="INT"/>
+            <column name="character_id" type="INT"/>
+            <column name="character_name" type="VARCHAR(255)"/>
+            <column name="corp_id" type="INT"/>
+            <column name="corp_name" type="VARCHAR(255)"/>
+            <column name="corp_ticker" type="VARCHAR(255)"/>
+            <column name="division" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-14" author="ronny (generated)">
+        <createTable tableName="location">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_location"/>
+            </column>
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="location_type" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="type_id" type="INT"/>
+            <column name="owner_corp_id" type="INT"/>
+            <column name="solarsystem_id" type="INT"/>
+            <column name="constellation_id" type="INT"/>
+            <column name="region_id" type="INT"/>
+            <column name="access_forbidden" type="BOOLEAN"/>
+            <column name="has_market" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-15" author="ronny (generated)">
+        <createTable tableName="market_group">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_marketgroup"/>
+            </column>
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="description" type="TEXT"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="parent_id" type="INT"/>
+            <column name="has_types" type="BOOLEAN"/>
+            <column name="icon_id" type="INT"/>
+            <column name="icon" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-16" author="ronny (generated)">
+        <createTable tableName="market_history">
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="average" type="DOUBLE"/>
+            <column name="highest" type="DOUBLE"/>
+            <column name="lowest" type="DOUBLE"/>
+            <column name="order_count" type="BIGINT"/>
+            <column name="volume" type="BIGINT"/>
+            <column name="region_id" type="INT">
+                <constraints primaryKey="true" primaryKeyName="pk_markethistory"/>
+            </column>
+            <column name="type_id" type="INT">
+                <constraints primaryKey="true" primaryKeyName="pk_markethistory"/>
+            </column>
+            <column name="date" type="DATE">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_markethistory"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-17" author="ronny (generated)">
+        <createTable tableName="market_order">
+            <column name="order_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_marketorder"/>
+            </column>
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="duration" type="INT"/>
+            <column name="is_buy_order" type="BOOLEAN"/>
+            <column name="issued_date" type="DATETIME"/>
+            <column name="min_volume" type="INT"/>
+            <column name="price" type="DOUBLE"/>
+            <column name="volume_total" type="INT"/>
+            <column name="volume_remain" type="INT"/>
+            <column name="range" type="VARCHAR(255)"/>
+            <column name="region_id" type="INT"/>
+            <column name="type_id" type="INT"/>
+            <column name="location_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-18" author="ronny (generated)">
+        <createTable tableName="my_order">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_myorder"/>
+            </column>
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="duration" type="INT"/>
+            <column name="is_buy_order" type="BOOLEAN"/>
+            <column name="issued_date" type="DATETIME"/>
+            <column name="min_volume" type="INT"/>
+            <column name="price" type="DOUBLE"/>
+            <column name="volume_total" type="INT"/>
+            <column name="volume_remain" type="INT"/>
+            <column name="range" type="VARCHAR(255)"/>
+            <column name="type_id" type="INT"/>
+            <column name="type" type="VARCHAR(255)"/>
+            <column name="location_id" type="BIGINT"/>
+            <column name="character_id" type="INT"/>
+            <column name="corp_id" type="INT"/>
+            <column name="wallet_division" type="INT"/>
+            <column name="escrow" type="DOUBLE"/>
+            <column name="corp_order" type="BOOLEAN"/>
+            <column name="state" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-19" author="ronny (generated)">
+        <createTable tableName="region">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_region"/>
+            </column>
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="description" type="TEXT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-20" author="ronny (generated)">
+        <createTable tableName="region_trading_config">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_regiontradingconfig"/>
+            </column>
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="buy_region_id" type="INT"/>
+            <column name="sell_region_id" type="INT"/>
+            <column name="min_margin" type="DOUBLE"/>
+            <column name="min_volume_buy_region" type="INT"/>
+            <column name="min_volume_sell_region" type="INT"/>
+            <column name="days_modified_orders" type="INT"/>
+            <column name="max_modified_orders_within_days" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-21" author="ronny (generated)">
+        <createTable tableName="solar_system">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_solarsystem"/>
+            </column>
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="security_status" type="DOUBLE"/>
+            <column name="constellation_id" type="INT"/>
+            <column name="region_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-22" author="ronny (generated)">
+        <createTable tableName="trade_candidate">
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="buy_region_id" type="INT"/>
+            <column name="sell_region_id" type="INT"/>
+            <column name="possible_profit_per_item" type="DOUBLE"/>
+            <column name="possible_profit_per_daily_volume_in_sell_region" type="DOUBLE"/>
+            <column name="max_buy_price" type="DOUBLE"/>
+            <column name="possible_volume" type="INT"/>
+            <column name="average_buy_price" type="DOUBLE"/>
+            <column name="average_sell_price" type="DOUBLE"/>
+            <column name="average_profit" type="DOUBLE"/>
+            <column name="average_profit_pct" type="DOUBLE"/>
+            <column name="average_profit_per_item" type="DOUBLE"/>
+            <column name="profit_pct_current_sell" type="DOUBLE"/>
+            <column name="config_id" type="INT">
+                <constraints primaryKey="true" primaryKeyName="pk_tradecandidate"/>
+            </column>
+            <column name="type_id" type="INT">
+                <constraints primaryKey="true" primaryKeyName="pk_tradecandidate"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-23" author="ronny (generated)">
+        <createTable tableName="transaction">
+            <column name="transaction_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_transaction"/>
+            </column>
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="unit_price" type="DOUBLE"/>
+            <column name="quantity" type="INT"/>
+            <column name="client_id" type="BIGINT"/>
+            <column name="client_name" type="VARCHAR(255)"/>
+            <column name="date" type="DATETIME"/>
+            <column name="buy" type="BOOLEAN"/>
+            <column name="personal" type="BOOLEAN"/>
+            <column name="journal_ref_id" type="BIGINT"/>
+            <column name="location_id" type="BIGINT"/>
+            <column name="type_id" type="INT"/>
+            <column name="type" type="VARCHAR(255)"/>
+            <column name="character_id" type="INT"/>
+            <column name="character_name" type="VARCHAR(255)"/>
+            <column name="corp_id" type="INT"/>
+            <column name="corp_name" type="VARCHAR(255)"/>
+            <column name="corp_ticker" type="VARCHAR(255)"/>
+            <column name="division" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-24" author="ronny (generated)">
+        <createTable tableName="type">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_type"/>
+            </column>
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="volume" type="DOUBLE"/>
+            <column name="packaged_volume" type="DOUBLE"/>
+            <column name="capacity" type="DOUBLE"/>
+            <column name="description" type="TEXT"/>
+            <column name="graphic_id" type="INT"/>
+            <column name="icon_id" type="INT"/>
+            <column name="market_group_id" type="INT"/>
+            <column name="market_group" type="VARCHAR(255)"/>
+            <column name="mass" type="DOUBLE"/>
+            <column name="portion_size" type="INT"/>
+            <column name="published" type="BOOLEAN"/>
+            <column name="radius" type="DOUBLE"/>
+            <column name="group_id" type="INT"/>
+            <column name="category_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-25" author="ronny (generated)">
+        <createTable tableName="type_category">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_typecategory"/>
+            </column>
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-26" author="ronny (generated)">
+        <createTable tableName="type_group">
+            <column name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_typegroup"/>
+            </column>
+            <column name="created_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_date" type="DATETIME"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="category_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1650548016388-27" author="ronny (generated)">
+        <createIndex indexName="idx_location" tableName="market_order">
+            <column name="location_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="1650548016388-28" author="ronny (generated)">
+        <createIndex indexName="idx_region_type" tableName="market_order">
+            <column name="region_id"/>
+            <column name="type_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet id="1650548016388-29" author="ronny (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="corporation"
+                                 constraintName="FK_CORPORATION_ON_USER" referencedColumnNames="id"
+                                 referencedTableName="application_user"/>
+    </changeSet>
+    <changeSet id="1650548016388-30" author="ronny (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="eve_character"
+                                 constraintName="FK_EVECHARACTER_ON_USER" referencedColumnNames="id"
+                                 referencedTableName="application_user"/>
+    </changeSet>
+    <changeSet id="1650548016388-31" author="ronny (generated)">
+        <addForeignKeyConstraint baseColumnNames="job_data_id" baseTableName="job_data_job_params"
+                                 constraintName="fk_jobdata_jobparams_on_job_data" referencedColumnNames="id"
+                                 referencedTableName="job_data"/>
+    </changeSet>
+
+</databaseChangeLog>

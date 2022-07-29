@@ -1,0 +1,81 @@
+server:
+  port : 8081
+
+spring:
+  application:
+    name: evetoolsuite-backend
+  datasource:
+    url: ${JDBC_DATABASE_URL:jdbc:postgresql://localhost:5432/eve_dev}
+    username: ${JDBC_DATABASE_USERNAME:eve}
+    password: ${JDBC_DATABASE_PASSWORD:eve}
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.xml
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    spring:
+      liquibase:
+        enabled: true
+
+oauth2:
+  authorization-uri: https://login.eveonline.com/v2/oauth/authorize
+  token-uri: https://login.eveonline.com/v2/oauth/token
+  clientId: ${CLIENT_ID}
+  clientSecret: ${CLIENT_SECRET}
+
+logging:
+  level:
+    root: INFO
+    de:
+      ronnywalter:
+        eve: INFO
+    com.github.kagkarlsson: INFO
+    com:
+      github:
+        scribejava: DEBUG
+    org:
+#      hibernate:
+#        SQL: debug
+      springframework:
+        security: INFO
+        scheduling: INFO
+      quartz: INFO
+
+#springdoc:
+#  packagesToScan: de.ronnywalter.eve
+
+structures:
+  file: structures_markets.txt
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka:
+  client:
+    serviceUrl:
+      register-with-eureka: true
+      fetch-registry: true
+      defaultZone: http://localhost:8761/eureka
+
+db-scheduler:
+  threads: 25
+
+#org:
+#  jobrunr:
+#    job-scheduler:
+#      enabled: true
+#    background-job-server:
+#      enabled: true
+#      worker-count: 24
+#    dashboard:
+#      enabled: true
+#      port: 8000
+

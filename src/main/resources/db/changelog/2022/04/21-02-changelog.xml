@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1650554120827-1" author="ronny (generated)">
+        <createTable tableName="scheduled_tasks">
+            <column name="task_data" type="bytea"/>
+            <column name="execution_time" type="timestamp with time zone">
+                <constraints nullable="false"/>
+            </column>
+            <column name="picked" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="picked_by" type="TEXT"/>
+            <column name="last_success" type="timestamp with time zone"/>
+            <column name="last_failure" type="timestamp with time zone"/>
+            <column name="consecutive_failures" type="INT"/>
+            <column name="last_heartbeat" type="timestamp with time zone"/>
+            <column name="version" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="task_name" type="TEXT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_scheduled_tasks"/>
+            </column>
+            <column name="task_instance" type="TEXT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_scheduled_tasks"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
